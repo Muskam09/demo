@@ -4,7 +4,7 @@ name: CI
 run-name: ${{ github.actor }} is testing out Github Actions
 
 env:
-  APP_NAME: PythonApp
+  GITHUB_ACTIONS: PythonApp
 
 # Controls when the workflow will run
 on:
@@ -20,7 +20,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  github-task-job:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
@@ -29,12 +29,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - run: echo "${{ env.APP_NAME }} - ${{ env.CONFIG_TYPE }} - ${{ env.PYTHON_VERSION }}"
+    - run: echo "ENV varaible GITHUB_ACTIONS it is ${{ env.GITHUB_ACTIONS }}"
     - run: echo "The job was triggered by a ${{ github.event_name }} event"
-    - run: echo "This job is running on ${{ runner.os }} server hosted by GitHub"
     - run: echo "Name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
-    - name: List Files in the repo
-      run: |
-        ls ${{ github.workspace }}
-    - run: echo "This job's status is ${{ job.status }}"
 
