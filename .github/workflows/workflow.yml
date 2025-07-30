@@ -1,31 +1,14 @@
-name: CI
-run-name: ${{ github.actor }} is testing out Github Actions
+name: python-deployment
+run-name: ${{ github.actor }} - ${{ github.ref_name }}
 
-env:
-  GITHUB_ACTIONS: PythonApp
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  github-task-job:
-    # The type of runner that the job will run on
+  python-ci:
     runs-on: ubuntu-latest
-    env:
-      CONFIG_TYPE: Debug
-      PYTHON_VERSION: 3.8
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - run: echo "ENV varaible GITHUB_ACTIONS it is ${{ env.GITHUB_ACTIONS }}"
-    - run: echo "The job was triggered by a ${{ github.event_name }} event"
-    - run: echo "Name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
-
+    - uses: actions/checkout@v4
