@@ -12,6 +12,7 @@ env:
 
 jobs:
   python-ci:
+    name: Python CI
     runs-on: ubuntu-latest
 
     defaults:
@@ -45,17 +46,20 @@ jobs:
         pytest -v --cov=. --cov-report=term-missing --cov-report=json
 
     - name: Uploud python artifacts
+      if: github.ref_name == 'main'
       uses: actions/upload-artifact@v4
       with:
         name: python-artifacts
         path: .
 
   buid-image:
+    name: Build Push Image
     needs: ['python-ci']
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/upload-artifact@v4
+      if: github.ref_name == 'main'
       with:
         name: python-artifacts
         path: .
