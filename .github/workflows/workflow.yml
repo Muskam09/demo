@@ -49,11 +49,13 @@ jobs:
       with:
         name: python-artifacts
         path: .
+
   buid-image:
+    needs: ['python-ci']
     runs-on: ubuntu-latest
 
     steps:
-    - uses: acactions/upload-artifact@v4
+    - uses: actions/upload-artifact@v4
       with:
         name: python-artifacts
         path: .
