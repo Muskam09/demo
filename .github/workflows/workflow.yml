@@ -49,3 +49,11 @@ jobs:
       with:
         name: python-artifacts
         path: .
+  buid-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: acactions/upload-artifact@v4
+      with:
+        name: python-artifacts
+        path: .
