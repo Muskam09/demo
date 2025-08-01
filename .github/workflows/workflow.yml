@@ -57,6 +57,12 @@ jobs:
         name: python-artifacts
         path: .
 
+    - name: Uploud helm artifacts
+      if: github.ref_name == 'main'
+      uses: actions/upload-artifact@v4
+      with:
+        name: helm-artifacts
+        path: ${{ github.workspace }}/kube2py
 
   buid-image:
     name: Build Push Image
