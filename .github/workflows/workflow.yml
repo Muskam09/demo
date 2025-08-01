@@ -42,9 +42,11 @@ jobs:
         cd ../
         flake8 . --statistics --max-complexity=10 --exit-zero
 
+
     - name: Run unit test with pytest
       run: |
         pytest -v --cov=. --cov-report=term-missing --cov-report=json
+
 
     - name: Uploud python artifacts
       if: github.ref_name == 'main'
