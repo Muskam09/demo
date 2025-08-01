@@ -57,7 +57,6 @@ jobs:
         name: python-artifacts
         path: .
 
-
   buid-image:
     name: Build Push Image
     needs: ['python-ci']
