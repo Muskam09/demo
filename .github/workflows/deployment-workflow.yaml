@@ -15,6 +15,7 @@ on:
         type: string
         default: './kube2py/values.yaml'
       helm-release-name:
+        description: "Name of the helm release"
         default: kube2py
         type: string
 
