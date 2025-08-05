@@ -133,6 +133,7 @@ jobs:
       environment: development
       helm-values-path: ./kube2py/values.yaml
       version: ${{ github.sha }}
+      helm-release-name: kube2py-development
 
 
   deploy-helm-staging:
