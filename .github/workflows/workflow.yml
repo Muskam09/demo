@@ -125,16 +125,18 @@ jobs:
         path: ./*.tgz
 
   deploy-helm-dev:
-    name: Deploy Helm
+    name: Deploy Helm Development
     uses: ./.github/workflows/deployment-workflow.yaml
     needs: [helm-ci, buid-image]
     secrets: inherit
     with:
       environment: development
+      helm-values-path: ./kube2py/values.yaml
       version: ${{ github.sha }}
 
+
   deploy-helm-staging:
-    name: Deploy Helm
+    name: Deploy Helm Staging
     uses: ./.github/workflows/deployment-workflow.yaml
     needs: deploy-helm-dev
     secrets: inherit
