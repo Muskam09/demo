@@ -28,10 +28,10 @@ kube2py:
   resources:
     requests:
       memory: "128Mi"
-      cpu: "40m"
+      cpu: "80m"
     limits:
       memory: "128Mi"
-      cpu: "40m"
+      cpu: "80m"
 
   hpa:
     enabled: false
