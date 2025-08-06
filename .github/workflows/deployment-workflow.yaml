@@ -56,7 +56,7 @@ jobs:
 
     - name: Deploy Helm
       run: |
-        helm upgrade --install --atomic --timeout 1800s --wait --debug ${{ inputs.helm-release-name }} ./kube2py-*.tgz \
+        helm upgrade --install --atomic --debug ${{ inputs.helm-release-name }} ./kube2py-*.tgz \
           -f ${{ inputs.helm-values-path }} \
           --set mysql.configs.MYSQL_ROOT_PASSWORD="${{ secrets.MYSQL_ROOT_PASSWORD }}" \
           --set mysql.configs.MYSQL_USER="${{ secrets.MYSQL_USER }}" \
