@@ -1,3 +1,5 @@
+commmon:
+  namespace: mateapp-staging
 
 global:
   ENVIRONMENT: "Development"
