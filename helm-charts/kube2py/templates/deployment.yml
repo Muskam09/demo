@@ -4,7 +4,7 @@ metadata:
  name: {{ .Release.Name }}-{{ .Chart.Name }}
  namespace: {{ .Values.commmon.namespace }}
 spec:
- replicas: 3
+ replicas: 2
  strategy:
    type: RollingUpdate
    rollingUpdate:
